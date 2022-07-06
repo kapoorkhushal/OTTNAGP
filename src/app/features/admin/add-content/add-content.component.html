@@ -13,41 +13,43 @@
                           <div class="field">
                               <label class="label font-color">Name</label>
                               <div class="control">
-                                <input class="input" [ngClass]="{'is-danger': hasError('name','required')}" type="text" placeholder="Movie Name" formControlName="name" required>
+                                <input class="input" [ngClass]="{'is-danger': hasError('Name','required')}" type="text" placeholder="Movie Name" formControlName="Name" required>
                               </div>
-                              <p class="help is-danger" *ngIf="hasError('name','required')">Movie Name is Required</p>
+                              <p class="help is-danger" *ngIf="hasError('Name','required')">Movie Name is Required</p>
                           </div>
                             
                           <div class="field">
                               <label class="label font-color">Genre</label>
-                              <div class="control">
-                                <input class="input" [ngClass]="{'is-danger': hasError('genre','required')}" type="text" placeholder="Genre" formControlName="genre" required>
+                              <div class="select is-link">
+                                <select [ngClass]="{'is-danger': hasError('Genre','required')}"  formControlName="Genre" required style="width: 30rem;">
+                                  <option *ngFor="let genre of genres" [value]="genre.value">{{genre.key}}</option>
+                                </select>
                               </div>
-                              <p class="help is-danger" *ngIf="hasError('genre','required')">Genre is Required</p>
+                              <p class="help is-danger" *ngIf="hasError('Genre','required')">Genre is Required</p>
                           </div>
 
                         <div class="field">
                             <label class="label font-color">Description</label>
                             <div class="control">
-                              <textarea class="textarea is-primary" [ngClass]="{'is-danger': hasError('description','required')}" type="text" placeholder="Description" formControlName="description" required></textarea>
+                              <textarea class="textarea is-primary" [ngClass]="{'is-danger': hasError('Description','required')}" type="text" placeholder="Description" formControlName="Description" required></textarea>
                             </div>
-                            <p class="help is-danger" *ngIf="hasError('description','required')">Description is Required</p>
+                            <p class="help is-danger" *ngIf="hasError('Description','required')">Description is Required</p>
                         </div>
 
                         <div class="field">
                             <label class="label font-color">Language</label>
                             <div class="control">
-                              <input class="input" [ngClass]="{'is-danger': hasError('language','required')}" type="text" placeholder="Language" formControlName="language" required>
+                              <input class="input" [ngClass]="{'is-danger': hasError('Language','required')}" type="text" placeholder="Language" formControlName="Language" required>
                             </div>
-                            <p class="help is-danger" *ngIf="hasError('language','required')">Language is Required</p>
+                            <p class="help is-danger" *ngIf="hasError('Language','required')">Language is Required</p>
                         </div>
 
                         <div class="field">
                             <label class="label font-color">IMDB-Rating</label>
                             <div class="control">
-                              <input class="input" [ngClass]="{'is-danger': hasError('rating','required')}" type="text" placeholder="Rating" formControlName="rating" required>
+                              <input class="input" [ngClass]="{'is-danger': hasError('Rating','required')}" type="number" placeholder="Rating" formControlName="Rating" required>
                             </div>
-                            <p class="help is-danger" *ngIf="hasError('ating','required')">Rating is Required</p>
+                            <p class="help is-danger" *ngIf="hasError('Rating','required')">Rating is Required</p>
                         </div>
 
                         <div class="field">

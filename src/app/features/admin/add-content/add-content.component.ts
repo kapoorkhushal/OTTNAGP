@@ -12,12 +12,21 @@ export class AddContentComponent implements OnInit {
   posterFile:string="";
   contentFile:string="";
 
+
+  genres: {key: string, value: number}[] = [
+    {key:"action", value: 1},
+    {key:"comedy", value: 2},
+    {key:"scifi", value: 3},
+    {key:"romance", value: 4},
+    {key:"horror", value: 5}
+  ];
+
   movieForm: FormGroup = this.formBuilder.group({
-    name: this.formBuilder.control('',[Validators.required]),
-    description: this.formBuilder.control('',[Validators.required]),
-    rating: this.formBuilder.control('',[Validators.required]),
-    language: this.formBuilder.control('',[Validators.required]),
-    genre: this.formBuilder.control('',[Validators.required])
+    Name: this.formBuilder.control('',[Validators.required]),
+    Description: this.formBuilder.control('',[Validators.required]),
+    Rating: this.formBuilder.control('',[Validators.required]),
+    Language: this.formBuilder.control('',[Validators.required]),
+    Genre: this.formBuilder.control<number>(0,[Validators.required])
   });
 
   constructor(private formBuilder: FormBuilder,
@@ -44,5 +53,9 @@ export class AddContentComponent implements OnInit {
       return control.getError(errorType);
     }
     return false
+  }
+
+  getOptionValue(optionValue: any){
+    return this.genres[optionValue];
   }
 }

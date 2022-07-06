@@ -23,11 +23,11 @@ export class SignupComponent implements OnInit {
     private router: Router) { }
 
     userForm: FormGroup = this.formBuilder.group({
-      fullName: this.formBuilder.control('',[Validators.required]),
-      email: this.formBuilder.control('',[Validators.required, Validators.email]),
-      password: this.formBuilder.control('',[Validators.required]),
-      rePassword: this.formBuilder.control('',[Validators.required, this.passwordValidation()]),
-      agreeTerms: this.formBuilder.control('',[Validators.requiredTrue])
+      FullName: this.formBuilder.control('',[Validators.required]),
+      Email: this.formBuilder.control('',[Validators.required, Validators.email]),
+      Password: this.formBuilder.control('',[Validators.required]),
+      RePassword: this.formBuilder.control('',[Validators.required, this.passwordValidation()]),
+      AgreeTerms: this.formBuilder.control('',[Validators.requiredTrue])
     });
 
   ngOnInit(): void {

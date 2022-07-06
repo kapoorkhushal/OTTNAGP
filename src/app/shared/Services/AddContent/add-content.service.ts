@@ -14,6 +14,7 @@ export class AddContentService {
     var count = this.moviesList.movies.length;
     input.Id = count+1;
     input.Reviews=[];
+    input.Genre = <number>input.Genre;
     this.moviesList.movies.push(input);
     return of(input.Id)
     .pipe(catchError(err => {return throwError(err);}));
