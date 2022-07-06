@@ -1,0 +1,45 @@
+<app-navbar [isUserSignedIn]="true" [isAdminUser]="isUserAdmin"></app-navbar>
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-8">
+      <div class="tile">
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-black">
+            <div class="block">
+                <section class="section is-small">
+                  <div class="rows is-mobile">
+                    <video width="1080" height="1920" controls>
+                        <source src="assets\sample.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video>
+                  </div>
+                </section> 
+                <input class="box" style="width: 100%; height: 100%;" placeholder="Add Review" [(ngModel)] = "review">
+              <button class="button is-hovered is-rounded" style="margin: 10px; color: gray;" (click)="addReview()">Add Review</button>
+              <p class="title">Reviews</p>
+              <div class="box" style="height: 200px; overflow: scroll;">
+                  <div *ngFor="let review of content.Reviews">{{review}}</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-black">
+        <div class="content">
+          <p class="title">{{content.Name}}</p>
+          <p class="subtitle">{{content.Description}}</p>
+          <div class="content">
+              <p>Rating : {{content.Rating}}</p>
+              <p>Language : {{content.Language}}</p>
+              <p>Genre : {{getGenre(content.Genre)}}</p>
+              <button class="button is-link is-hovered is-rounded" style="margin: 10px;" (click)="addToWatchLater()">Add to Watch Later</button>
+              <button class="button is-link is-hovered is-rounded" style="margin-top: 10px; margin-left: 10px;" (click)="addToFavourites()">Add to Favourites</button>
+          </div>
+          <div class="notification is-primary is-light" *ngIf="isErrored">
+            <strong>{{errorMessage}}</strong>
+          </div>
+        </div>
+      </article>
+    </div>
+</div>

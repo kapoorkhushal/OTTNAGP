@@ -1,0 +1,76 @@
+<app-navbar [isUserSignedIn]="false"></app-navbar>
+<div class="tile is-ancestor">
+    <div class="tile is-vertical">
+        <div class="tile">
+            <div class="tile is-parent">
+                <article class="tile is-child notification"
+                    style="background: linear-gradient(to bottom, #00060c 0%, #cfd8e7 100%);">
+                    <div class="block">
+                        <section class="section card-data is-small">
+                            <div class="columns card1 is-mobile" *ngFor="let content of ContentList">
+                                <app-card [movie]="content"></app-card>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="tile is-parent is-4 is-black">
+        <article class="tile is-child notification is-black" style="position: fixed;">
+            <div class="content">
+                <p class="title">Login</p>
+                <p class="subtitle">Welcome back!</p>
+                <div class="content">
+                    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                        <div class="field">
+                            <label class="label font-color">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-danger"
+                                    [ngClass]="{'is-danger': hasError('email','required') || hasError('email','email')}" type="email"
+                                    placeholder="Email" formControlName="email" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                            <p class="help is-danger" *ngIf="hasError('email','required')">Email is Required</p>
+                            <p class="help is-danger" *ngIf="hasError('email','email')">Email is Invalid</p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label font-color">Password</label>
+                            <div class="control has-icons-left">
+                                <input class="input" [ngClass]="{'is-danger': hasError('password','required')}" type="password"
+                                    placeholder="Password" formControlName="password" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                            <p class="help is-danger" *ngIf="hasError('password','required')">Password is Required</p>
+                        </div>
+
+                        <div class="is-danger error-text" *ngIf="isErrored">
+                            {{errorMessage}}
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button type="submit" class="button is-link"
+                                    [disabled]="userForm.invalid">Login</button>
+                            </div>
+                            <div class="control">
+                                <button type="reset" class="button is-link is-light" [disabled]="userForm.pristine"
+                                    routerLink="/">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <p>Not a User! <a routerLink="/signup"><strong>Sign Up</strong></a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

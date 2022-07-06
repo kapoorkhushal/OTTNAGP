@@ -1,0 +1,114 @@
+<app-navbar [isUserSignedIn]="true" [isAdminUser]="true"></app-navbar>
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-8">
+      <div class="tile">
+        <div class="tile is-parent">
+          <article class="tile is-child notification" style="background: linear-gradient(to bottom, #00060c 0%, #9499a1 100%);">
+            <div class="block">
+                <section class="section is-small">
+                  <div class="rows is-mobile">
+                    <div class="content">
+                        <p class="title is-family-monospace" style="color:crimson;">Add Movie</p>
+                        <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+                          <div class="field">
+                              <label class="label font-color">Name</label>
+                              <div class="control">
+                                <input class="input" [ngClass]="{'is-danger': hasError('name','required')}" type="text" placeholder="Movie Name" formControlName="name" required>
+                              </div>
+                              <p class="help is-danger" *ngIf="hasError('name','required')">Movie Name is Required</p>
+                          </div>
+                            
+                          <div class="field">
+                              <label class="label font-color">Genre</label>
+                              <div class="control">
+                                <input class="input" [ngClass]="{'is-danger': hasError('genre','required')}" type="text" placeholder="Genre" formControlName="genre" required>
+                              </div>
+                              <p class="help is-danger" *ngIf="hasError('genre','required')">Genre is Required</p>
+                          </div>
+
+                        <div class="field">
+                            <label class="label font-color">Description</label>
+                            <div class="control">
+                              <textarea class="textarea is-primary" [ngClass]="{'is-danger': hasError('description','required')}" type="text" placeholder="Description" formControlName="description" required></textarea>
+                            </div>
+                            <p class="help is-danger" *ngIf="hasError('description','required')">Description is Required</p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label font-color">Language</label>
+                            <div class="control">
+                              <input class="input" [ngClass]="{'is-danger': hasError('language','required')}" type="text" placeholder="Language" formControlName="language" required>
+                            </div>
+                            <p class="help is-danger" *ngIf="hasError('language','required')">Language is Required</p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label font-color">IMDB-Rating</label>
+                            <div class="control">
+                              <input class="input" [ngClass]="{'is-danger': hasError('rating','required')}" type="text" placeholder="Rating" formControlName="rating" required>
+                            </div>
+                            <p class="help is-danger" *ngIf="hasError('ating','required')">Rating is Required</p>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <label class="label font-color">Poster Link</label>
+                                <div class="file is-info">
+                                    <label class="file-label">
+                                      <input class="file-input" [ngClass]="{'is-danger': hasError('PosterURL','required')}" type="file" required>
+                                      <span class="file-cta">
+                                        <span class="file-icon">
+                                          <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                          Choose a file…
+                                        </span>
+                                      </span>
+                                    </label>
+                                  </div>        
+                            </div>
+                            <p class="help is-danger" *ngIf="hasError('PosterURL','required')">Poster is Required</p>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <label class="label font-color">Content Link</label>
+                                <div class="file is-info">
+                                    <label class="file-label">
+                                      <input class="file-input" [ngClass]="{'is-danger': hasError('ContentURL','required')}" type="file" required>
+                                      <span class="file-cta">
+                                        <span class="file-icon">
+                                          <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                          Choose a file…
+                                        </span>
+                                      </span>
+                                    </label>
+                                  </div>        
+                            </div>
+                            <p class="help is-danger" *ngIf="hasError('ContentURL','required')">Content is Required</p>
+                        </div>
+
+                          <div class="notification is-primary is-light" *ngIf="isErrored">
+                            <strong>{{errorMessage}}</strong>
+                          </div>
+                          
+                          <div class="field is-grouped">
+                              <div class="control">
+                                <button type="submit" class="button is-link" [disabled]="movieForm.invalid">Submit</button>
+                              </div>
+                              <div class="control">
+                                <button type="reset" class="button is-link is-light" [disabled]="movieForm.pristine">Cancel</button>
+                              </div>
+                          </div>
+                        </form>
+                    </div>
+                  </div>
+                </section>  
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+</div>

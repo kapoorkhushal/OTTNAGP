@@ -1,0 +1,23 @@
+<app-navbar [isUserSignedIn]="true" [isAdminUser]="isUserAdmin"></app-navbar>
+<div class="tile is-ancestor">
+    <div class="tile is-vertical">
+        <div class="tile">
+            <div class="tile is-parent">
+                <article class="tile is-child notification"
+                    style="background: linear-gradient(to bottom, #00060c 0%, #cfd8e7 100%);">
+                    <p class="title is-size-1 is-family-monospace" style="color: red;">Watch Later!</p>
+
+                    <div class="block">
+                        <section class="section card-data is-small">
+                            <div class="columns card1 is-mobile" *ngFor="let content of ContentList">
+                                <button class="is-black is-hovered card-button" (click)="onContentClick(content.Id)">
+                                    <app-card [movie]="content"></app-card>
+                                </button>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

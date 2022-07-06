@@ -1,0 +1,51 @@
+#et-boc .dica_divi_carousel .dica_divi_carouselitem, #et-boc .dica_divi_carousel .dica_divi_carouselitem>div, .dica_divi_carousel .dica_divi_carouselitem, .dica_divi_carousel .dica_divi_carouselitem>div {
+    border-style: solid;
+    border-width: 0;
+}
+.dica_divi_carousel .dica_divi_carouselitem {
+    font-size: 14px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    margin-bottom: 0 !important;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+}
+
+.dica_divi_carouselitem {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+}
+
+.et_pb_all_tabs, .et_pb_module, .et_pb_posts_nav a, .et_pb_tab, .et_pb_with_background {
+    position: relative;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+a, abbr, acronym, address, applet, b, big, blockquote, body, center, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, tt, u, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.card-data {
+    padding-inline-start: 2rem;
+    font-family: cursive;
+    color: white;
+}
+
+hr{
+    height: 0%;
+}

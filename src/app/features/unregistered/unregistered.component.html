@@ -1,0 +1,18 @@
+<app-navbar [isUserSignedIn]="false"></app-navbar>
+<div class="tile is-ancestor">
+    <div class="tile is-vertical">
+        <div class="tile">
+            <div class="tile is-parent">
+                <article class="tile is-child notification" style="background: linear-gradient(to bottom, #00060c 0%, #cfd8e7 100%);">
+                    <div class="block">
+                        <section class="section card-data is-small">
+                            <div class="columns card1 is-mobile" *ngFor="let content of ContentList">
+                                <app-card [movie]="content"></app-card>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

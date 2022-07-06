@@ -1,0 +1,104 @@
+<app-navbar [isUserSignedIn]="false"></app-navbar>
+<div class="tile is-ancestor">
+    <div class="tile is-vertical">
+        <div class="tile">
+            <div class="tile is-parent">
+                <article class="tile is-child notification"
+                    style="background: linear-gradient(to bottom, #00060c 0%, #cfd8e7 100%);">
+                    <div class="block">
+                        <section class="section card-data is-small">
+                            <div class="columns card1 is-mobile" *ngFor="let content of ContentList">
+                                <app-card [movie]="content"></app-card>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child notification" style="background: linear-gradient(to bottom, #00060c 0%, #cfd8e7 100%);">
+          <div class="content">
+            <p class="title font-color">Sign Up</p>
+            <p class="subtitle font-color">Hey New user!</p>
+            <div class="content">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                  <div class="field">
+                      <label class="label font-color">Name</label>
+                      <div class="control has-icons-left has-icons-right">
+                        <input class="input" [ngClass]="{'is-danger': hasError('fullName','required')}" type="text" placeholder="Full Name" formControlName="fullName" required>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-user"></i>
+                        </span>
+                      </div>
+                      <p class="help is-danger" *ngIf="hasError('fullName','required')">Name is Required</p>
+                  </div>
+                    
+                  <div class="field">
+                      <label class="label font-color">Email</label>
+                      <div class="control has-icons-left has-icons-right">
+                        <input class="input" [ngClass]="{'is-danger': hasError('email','required') || hasError('email','email')}" type="email" placeholder="Email" formControlName="email" required>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-envelope"></i>
+                        </span>
+                      </div>
+                      <p class="help is-danger" *ngIf="hasError('email','required')">Email is Required</p>
+                      <p class="help is-danger" *ngIf="hasError('email','email')">Email is Invalid</p>
+                  </div>
+                    
+                  <div class="field">
+                      <label class="label font-color">Password</label>
+                      <div class="control has-icons-left">
+                          <input class="input" [ngClass]="{'is-danger': hasError('password','required')}" type="password" placeholder="Password"  formControlName="password" required>
+                          <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                          </span>
+                      </div>
+                      <p class="help is-danger" *ngIf="hasError('password','required')">Password is Required</p>
+                      <p class="help is-danger">Password must be at least 8 characters and contains at least one special character, number and Upper case character</p>
+                  </div>
+      
+                  <div class="field">
+                      <label class="label font-color">Re-Type Password</label>
+                      <div class="control has-icons-left">
+                          <input class="input" [ngClass]="{'is-danger': hasError('rePassword','required') || passwordValidate('rePassword','match')}" type="password" placeholder="Password"  formControlName="rePassword" required>
+                          <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                          </span>
+                      </div>
+                      <p class="help is-danger" *ngIf="hasError('rePassword','required')">Password is Required</p>
+                      <p class="help is-danger" *ngIf="passwordValidate('rePassword','match')">Password should match</p>
+                  </div>
+                                  
+                  <div class="field">
+                      <div class="control font-color">
+                        <label class="checkbox">
+                          <input type="checkbox" formControlName="agreeTerms" required>
+                          I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                      </div>
+                  </div>
+  
+                  <div class="notification is-primary is-light" *ngIf="isErrored">
+                    <strong>{{errorMessage}}</strong>
+                  </div>
+                  
+                  <div class="field is-grouped">
+                      <div class="control">
+                        <button type="submit" class="button is-link" [disabled]="userForm.invalid">Submit</button>
+                      </div>
+                      <div class="control">
+                        <button type="reset" class="button is-link is-light" [disabled]="userForm.pristine" routerLink="/">Cancel</button>
+                      </div>
+                  </div>
+                  <div class="field is-grouped">
+                      <div class="control font-color">
+                          <p>Already a user <a routerLink="/login"><strong>Login</strong></a></p>
+                      </div>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </article>
+      </div>
+</div>
