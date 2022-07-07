@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Movies } from 'src/app/shared/Data/movies';
 
 import { UnregisteredComponent } from './unregistered.component';
 
@@ -8,7 +9,8 @@ describe('UnregisteredComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UnregisteredComponent ]
+      declarations: [ UnregisteredComponent ],
+      providers:[Movies]
     })
     .compileComponents();
 

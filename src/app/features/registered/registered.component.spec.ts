@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Movies } from 'src/app/shared/Data/movies';
+import { Users } from 'src/app/shared/Data/users';
 
 import { RegisteredComponent } from './registered.component';
 
@@ -8,7 +11,9 @@ describe('RegisteredComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisteredComponent ]
+      declarations: [ RegisteredComponent ],
+      providers:[Movies, Users],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
 

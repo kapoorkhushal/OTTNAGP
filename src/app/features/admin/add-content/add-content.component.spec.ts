@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { Movies } from 'src/app/shared/Data/movies';
 
 import { AddContentComponent } from './add-content.component';
 
@@ -8,7 +10,8 @@ describe('AddContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddContentComponent ]
+      declarations: [ AddContentComponent ],
+      providers:[FormBuilder, Movies]
     })
     .compileComponents();
 

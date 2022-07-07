@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Movies } from 'src/app/shared/Data/movies';
 import { Users } from 'src/app/shared/Data/users';
 
@@ -11,7 +12,8 @@ describe('FavouritesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ FavouritesComponent ],
-      providers:[Users, Movies]
+      providers:[Users, Movies],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
 
