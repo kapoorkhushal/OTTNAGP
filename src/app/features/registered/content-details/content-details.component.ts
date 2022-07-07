@@ -75,6 +75,7 @@ export class ContentDetailsComponent implements OnInit {
 
   addReview(){
     this.addReviewService.addReview(this.contentId, this.review);
+    this.review = "";
   }
 
   getGenre(input?: Number): string{

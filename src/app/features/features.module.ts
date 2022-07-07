@@ -12,6 +12,7 @@ import { ContentDetailsComponent } from './registered/content-details/content-de
 import { AddContentComponent } from './admin/add-content/add-content.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { GenreComponent } from './registered/genre/genre.component';
 
 
 
@@ -25,7 +26,8 @@ import { AppRoutingModule } from '../app-routing.module';
     WatchLaterComponent,
     WatchedComponent,
     ContentDetailsComponent,
-    AddContentComponent
+    AddContentComponent,
+    GenreComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,7 @@ import { AppRoutingModule } from '../app-routing.module';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule
-  ]
+  ],
+  providers: [GenreComponent]
 })
 export class FeaturesModule { }

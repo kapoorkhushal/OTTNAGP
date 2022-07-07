@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddContentComponent } from './features/admin/add-content/add-content.component';
 import { ContentDetailsComponent } from './features/registered/content-details/content-details.component';
 import { FavouritesComponent } from './features/registered/favourites/favourites.component';
+import { GenreComponent } from './features/registered/genre/genre.component';
 import { RegisteredComponent } from './features/registered/registered.component';
 import { WatchLaterComponent } from './features/registered/watch-later/watch-later.component';
 import { WatchedComponent } from './features/registered/watched/watched.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {path:'admin/addmovie', component:AddContentComponent},
-  {path:'registered/moviedetail', component:ContentDetailsComponent}
+  {path:'registered/moviedetail', component:ContentDetailsComponent},
+  {path:'registered/genre/:id', component:GenreComponent}
 ];
 
 @NgModule({

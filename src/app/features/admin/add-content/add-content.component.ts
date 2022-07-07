@@ -41,6 +41,7 @@ export class AddContentComponent implements OnInit {
     this.addContentService.addContent(this.movieForm.value).subscribe((response)=>{
       this.errorMessage="Movie Added Successfully";
       this.isErrored=true;
+      this.movieForm.reset();
     },(error)=>{
       this.errorMessage="Error in Adding Movie";
       this.isErrored=true;

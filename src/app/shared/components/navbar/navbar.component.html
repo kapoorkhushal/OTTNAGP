@@ -29,6 +29,22 @@
             <a class="navbar-item" routerLink="/admin/addmovie" *ngIf="isAdminUser">
                 Add Movie
             </a>
+
+            <div class="navbar-item dropdown is-hoverable is-dark">
+                <div class="dropdown-trigger">
+                    <span>Genre</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                  <div class="dropdown-content" style="background-color: #363636;">
+                    <div class="dropdown-item" *ngFor="let genre of genres">
+                      <a class="navbar-item nav-item-color" routerLink="/registered/genre/{{genre}}" (click)="onGenreClick(genre)" >{{genre}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
 
         <div class="navbar-end">
