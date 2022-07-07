@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { Movies } from 'src/app/shared/Data/movies';
+import { Users } from 'src/app/shared/Data/users';
 
 import { GenreComponent } from './genre.component';
 
@@ -8,7 +11,8 @@ describe('GenreComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GenreComponent ]
+      declarations: [ GenreComponent ],
+      providers:[Users, Movies, Router]
     })
     .compileComponents();
 

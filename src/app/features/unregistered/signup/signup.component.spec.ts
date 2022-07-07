@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { Movies } from 'src/app/shared/Data/movies';
+import { Users } from 'src/app/shared/Data/users';
 
 import { SignupComponent } from './signup.component';
 
@@ -8,7 +11,8 @@ describe('SignupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignupComponent ]
+      declarations: [ SignupComponent ],
+      providers:[FormBuilder, Movies, Users]
     })
     .compileComponents();
 
